@@ -18,22 +18,25 @@ public class InterfaceEventosConsole implements ObservadorJogo {
     @Override
     public void notificar(EventoJogo e) {
         if (e.tipo() == TipoEvento.FIM_DE_JOGO) {
-            System.out.println("[EVENTO] FIM DE JOGO! Vencedor: " + nomeJogadorAtacante);
+            System.out.println("-------------------------------------");
+            System.out.println("           FIM DE JOGO!              ");
+            System.out.println("Parabéns, " + nomeJogadorAtacante + "! Você afundou todos os navios inimigos!");
+            System.out.println("-------------------------------------");
             return;
         }
 
         Coordenada c = e.coordenada();
         switch (e.tipo()) {
             case TIRO_ERRO -> {
-                System.out.println("[" + nomeJogadorAtacante + "] ERRO em " + fmt(c));
+                System.out.println("Que pena! Seu tiro na coordenada " + fmt(c) + " atingiu apenas a água.");
                 mapaOponente.marcarErro(c.linha(), c.coluna());
             }
             case TIRO_ACERTO -> {
-                System.out.println("[" + nomeJogadorAtacante + "] ACERTO em " + fmt(c) + det(e));
+                System.out.println("Excelente! Um tiro certeiro na coordenada " + fmt(c) + "! " + det(e));
                 mapaOponente.marcarAcerto(c.linha(), c.coluna());
             }
             case TIRO_AFUNDOU -> {
-                System.out.println("[" + nomeJogadorAtacante + "] AFUNDOU em " + fmt(c) + det(e));
+                System.out.println("BOOM! Embarcação afundada na coordenada " + fmt(c) + "! " + det(e));
                 mapaOponente.marcarAcerto(c.linha(), c.coluna());
             }
         }
