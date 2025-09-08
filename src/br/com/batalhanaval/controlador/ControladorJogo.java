@@ -51,7 +51,8 @@ public class ControladorJogo {
 
         // Loop
         while (true) {
-            System.out.println("\n===== TURNO " + turnos.turnoAtual() + " =====");
+            System.out.println("\n>>> Atenção! É a sua vez, Capitão! TURNO " + turnos.turnoAtual() + " <<<");
+            System.out.println("Boa sorte :)");
 
             // HUMANO ataca
             Embarcacao embarcacao = escolherEmbarcacao(in, humano);
@@ -66,7 +67,7 @@ public class ControladorJogo {
 
             // CPU ataca (placeholder: tiro simples em célula pseudo-aleatória)
             var escolha = ia.decidir(computador, humano);
-            System.out.println("[CPU] atirando em " + escolha.alvo().linha() + "," + escolha.alvo().coluna());
+            System.out.println("\nO inimigo se prepara para o ataque! Aguarde por favor...");
             turnos.aplicarJogadaComEventos(escolha.atacante(), escolha.arma(), escolha.alvo(),
                     humano.tabuleiro(), humano.frota());
 
@@ -86,7 +87,7 @@ public class ControladorJogo {
     }
 
     private Embarcacao escolherEmbarcacao(Scanner in, Jogador j) {
-        System.out.println("\nEscolha uma embarcação viva para atirar:");
+        System.out.println("\nEscolha uma de suas embarcações para atacar o inimigo:");
         List<Embarcacao> vivas = j.frota().stream()
                 .filter(e -> !e.estaAfundada())
                 .sorted(Comparator.comparing(Embarcacao::nome))
@@ -109,7 +110,7 @@ public class ControladorJogo {
             if (opc == 1 && e.usosRestantes(TipoArma.SIMPLES)   != 0) return new TiroSimples();
             if (opc == 2 && e.usosRestantes(TipoArma.DUPLO)     != 0) return new TiroDuplo();
             if (opc == 3 && e.usosRestantes(TipoArma.EXPLOSIVO) != 0) return new TiroExplosivo();
-            System.out.println("Arma indisponível. Escolha outra:");
+            System.out.println("Essa arma não tem mais munição, Capitão. Escolha outra para o seu ataque:");
         }
     }
 
@@ -128,7 +129,7 @@ public class ControladorJogo {
                 int v = Integer.parseInt(s);
                 if (v >= min && v <= max) return v;
             } catch (NumberFormatException ignored) {}
-            System.out.print("Valor inválido. Digite entre " + min + " e " + max + ": ");
+            System.out.print("Coordenada inválida, Capitão. Por favor, digite um valor entre " + min + " e " + max + ": ");
         }
     }
 
