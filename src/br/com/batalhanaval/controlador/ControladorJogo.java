@@ -65,9 +65,16 @@ public class ControladorJogo {
                 break;
             }
 
+            // Adicionei este bloco para a pausa
+            try {
+                System.out.println("\n--- O inimigo está planejando o próximo ataque. Aguarde, Capitão... ---");
+                Thread.sleep(5000); // Pausa de 5 segundos
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+
             // CPU ataca (placeholder: tiro simples em célula pseudo-aleatória)
             var escolha = ia.decidir(computador, humano);
-            System.out.println("\nO inimigo se prepara para o ataque! Aguarde por favor...");
             turnos.aplicarJogadaComEventos(escolha.atacante(), escolha.arma(), escolha.alvo(),
                     humano.tabuleiro(), humano.frota());
 
