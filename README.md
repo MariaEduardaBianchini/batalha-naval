@@ -63,7 +63,7 @@ Foram aplicados conceitos de POO e padrões de projeto em Java:
 
 ## 📊 Documentação Adicional
 
-Além deste README, o projeto também conta com um **Diagrama de Classes UML**, disponível na pasta [`docs/`](./docs).  
+Além deste README, o projeto também conta com um **Diagrama de Classes UML**, disponível na raiz do repositório.  
 Esse diagrama detalha os principais pacotes, classes e relacionamentos do sistema, servindo como apoio para o entendimento da arquitetura e da modelagem orientada a objetos.
 
 
