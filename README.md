@@ -42,8 +42,8 @@ java -cp bin br.com.batalhanaval.bootstrap.Principal
 
 ## 👥 Integrantes
 
-Maria Eduarda Ferreira Bianchini RA: 081230001
-Ana Marta de Souza Santos RA: 082230041
+- Maria Eduarda Ferreira Bianchini RA: 081230001
+- Ana Marta de Souza Santos RA: 082230041
 
 ---
 
@@ -58,4 +58,12 @@ Foram aplicados conceitos de POO e padrões de projeto em Java:
 - Observer
 - Factory
 - Singleton
+
+---
+
+## 📊 Documentação Adicional
+
+Além deste README, o projeto também conta com um **Diagrama de Classes UML**, disponível na pasta [`docs/`](./docs).  
+Esse diagrama detalha os principais pacotes, classes e relacionamentos do sistema, servindo como apoio para o entendimento da arquitetura e da modelagem orientada a objetos.
+
 
